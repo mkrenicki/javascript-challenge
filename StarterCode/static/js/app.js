@@ -83,6 +83,3 @@ function runEnter() {
         });
     });
 }
-
-// Event listener
-date_entry.on("change", runEnter);
