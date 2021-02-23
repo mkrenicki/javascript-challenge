@@ -57,20 +57,20 @@ data.forEach(function(ufo_info) {
 });
 
 // Date entry and table reorg based on date provided
-// Variable for date inputted by user
-var date_entry = d3.select("#datetime");
+// Variables for date capture button and form (found in inspector)
 var button = d3.select("#filter-btn");
+var form_control = d3.select("form-control");
+
     // console.log(d3.event.target);
 
-// Event handler for click/enter
+// Event handler for click/submit
 button.on("click", runEnter);
-date_entry.on("click", runEnter);
+form_control.on("submit", runEnter);
 
 // Set up fuction to run event
 function runEnter() {
     d3.event.preventDefault();
-    console.log(date_entry);
-    var date_table = tableData.map(ufo_info => ufo_info.datetime === date_entry);
+    var date_table = tableData.map(ufo_info => ufo_info.datetime === form_control);
     date_table.forEach(function(ufo_info_rev) {
         console.log(ufo_info_rev);
         var row = tbody.append("tr");
